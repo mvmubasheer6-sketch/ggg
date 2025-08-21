@@ -1,0 +1,86 @@
+types of users in linux
+root user
+user
+  
+service users
+
+by default all users will be added to /home directory
+
+adduser username - to create user
+useradd username - to create user
+groupadd groupname - to create group
+userdel username - to delete user
+
+cat /etc/passwd - list all users
+getent passwd - list all users
+cat /etc/group - list all group
+getent group - list all group
+cat /etc/shadow - see credintial of user
+
+id - to find userid, groupid and user contained group information
+id username - info about userid, gid
+
+adduser -u 1234 username - to create user with specific uid
+user id of root user - 0
+head -1 /etc/passwd - check root user
+head -n -1 /etc/passwd - check root user
+
+user 7 fileds-> username, password, userID, groupID, comment, userDirectory and userShell
+
+last - it will find howmany users are signed in, ip address of user, from what time to till what time
+w and who - provide current logged in user informations
+
+su - siwtvh user from one user to another user
+
+visudo
+vim /etc/sudoers 
+
+adduser -m -d /opt/dname username - create user with custom directory
+
+adduser -e YYYY-MM-DD username - it will determine account expiry data <tomorrow>
+chage -l username - it will password expiry information
+chage -m 10 username - password chnage frequency
+sudo chage -M 30 username - password expiry
+
+cat /etc/login.defs - defaualt user configuration
+passwd --lock username - it goign to lock user account to access server
+userdel --remove username
+
+passwd --delete usernam - dlete user password
+passwd -d username
+
+-c - command
+-d - home directory
+-e - expiry date
+-G - add user to multiple group
+-a -append
+-s specify login shells
+
+type os group:
+primary group
+secondary group
+
+id
+groups - it provide all group information
+groups username - specific user group names
+
+groupadd -g 1234 groupname - to create group with specific uid
+
+usermod -a -G groupname username - add user to group
+usermod -a -G groupname, groupname2 username - add multiple users to group
+usermod -g groupname username - to chnage primary group
+useradd -g primarygroup -G secondary1,secondary2 username - to add primary and secondary group together
+
+gpasswd -d username groupname
+
+groupdel groupname - to delete group
+
+
+last username - check howmany time user accessed to this vm
+lastb - give bad logins to vm
+lastlog - last logged in time of users
+
+/var/log/utmp – It contains information about users who are currently logged in
+/var/log/utmw – It contains the history of all logged-in users
+/var/log/btmp – It keeps all bad login attempts
+

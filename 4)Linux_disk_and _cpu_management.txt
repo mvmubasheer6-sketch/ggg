@@ -1,0 +1,97 @@
+to list all block devices
+-------------------------
+lsblk - list all storage block, which is attached to vm
+df -h - disk free units (it will print only mounted file system)
+df -hT - including type
+
+du - disk utelisation command
+du -a  including file and directories
+du -h human readable
+du -s summarise total usage
+
+du -sh * - disk utelization command
+
+fdiks - to do parition of master disk (fixed diks, format diks)
+fdiks -l it will print available partition on disk
+gdiks - for create disk partition
+
+sfdiks -l, parted -l
+
+cfdisk - this will give GUI
+
+blkid - it will print uuid(universally unique identifier) and partition type info
+blkid /dev/xvda1 - it will print specific block dev info
+
+monitor disk performance
+------------------------
+
+iostat - basic monitoring, eg:tps(trnsaction per second)
+iostat 2 4 - it will list 4 times in 2 second gap
+
+iotop - input and output table of power (by default not installed)
+dstat - input and output data info (by default not installed)
+
+atop - live monitoring disk
+ioping - /dev/xvda1 - ioping is a quick and dirty storage volume latency checker. 
+
+free -m - it will print ram info
+
+
+CPU UTELISATION COMMAND
+-----------------------
+cat /proc/cpuinfo - to get cpu harware information
+lscpu - print cpu architecture
+
+loadaverage - no of jobs w/i for io operation in 1 min avg an d5min avg na d15 min avg
+------------
+uptime - to find system load 
+top command
+ - z - to highlight running commands
+ - c - to get entire path of running commands
+ - d - to chnage delay, default 3.0
+ - k - to kill process
+ - shift+p - to sort cpu utelisation descending order
+ - H - for threads
+ - V - parent and child process
+
+htop (install)
+cat /proc/loadavg
+mpstat -P ALL 1 (-P process ALL - all process 1- 1 second gap)
+
+cpu stress command
+------------------
+install epel repository -> "yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+install stress command -> "yum install stress"
+stress cpu -> "stress --cpu 9 --timeout 300"
+
+NICE
+Linux can run a lot of processes at a time, which can slow down the speed of some high priority processes and result in poor performance.
+To avoid this, you can tell your machine to prioritize processes as per your requirements. -20 to 0
+
+syntax
+------
+renice nice-value -p pid
+
+lst all process
+---------------
+ps -e
+ps -ef
+
+ps -ax
+ps -axu
+
+ps -ef | grep name
+
+ps pid -> chekc status of process
+
+find pid of process
+-------------------
+pidof process_name
+
+how to kill process
+--------------------
+kill pid
+kill -9 pid
+rm /proc/pid
+top command enter k and enter pid
+

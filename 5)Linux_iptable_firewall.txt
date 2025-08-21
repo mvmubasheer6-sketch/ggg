@@ -1,0 +1,68 @@
+ip tables
+---------
+iptables is a user-space utility program that allows a system administrator to configure the IP packet filter rules of the Linux kernel firewall.
+
+FILTER – this is the default table, which contains the built in chains for:
+INPUT  – packages destined for local sockets
+FORWARD – packets routed through the system
+OUTPUT – packets generated locally
+
+iptable -L - list ip table
+iptables -L -n -v
+-L list
+-n numeric
+-v verbose
+
+ADD rule in ip table
+--------------------
+iptables -A INPUT -p tcp -s 157.45.37.140/32 --dport 22 -j ACCEPT/DEROP
+
+iptables -A INPUT -p tcp -s 49.37.162.60/32 --dport 80 -j DROP
+
+
+
+-A - append
+-D - detach
+-p - prptocol
+-s - source
+--deport - destination port
+-j - action accept or drop
+
+DELETE rule in ip tables
+------------------------
+iptables -D INPUT -p tcp -s  157.45.37.140/32 --dport 80 -j ACCEPT/DROP
+
+-A - append
+-D - detach
+-p - prptocol
+-s - source
+--deport - destination port
+-j - action accept or drop
+
+start, stop and restart
+-----------------------
+systemctl start iptables
+systemctl stop iptables
+systemctl restart iptables
+
+FIREWALL
+---------
+firewall is a network security system that monitors and controls incoming and outgoing network traffic 
+based on predetermined security rules.
+
+EXAMPE FOR FIREWALL
+-------------------
+FIREWALLD
+UFW
+
+install firewall
+-----------------
+sudo yum install -y firewalld
+sudo service firewalld start
+sudo systemctl enable firewalld
+sudo firewall-cmd --permanent --zone=public --add-port=80/tcp
+sudo firewall-cmd --reload
+sudo firewall-cmd --zone=public --list-ports
+sudo firewall --list-all
+
+

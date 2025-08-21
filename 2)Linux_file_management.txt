@@ -1,0 +1,70 @@
+The /root directory is the home directory for the root user.
+The /dev directory contains device files such as /dev/sda.
+Static boot files are located in the /boot directory.
+Applications and user utilities are found in the /usr directory.
+The /var directory contains log files of various system applications.
+All system configuration files are stored in the /etc directory.
+The /home directory is where user folders are located. These include Desktop, Documents, Downloads, Music, Public, and Videos.
+For add-on application packages, check them out in the /opt directory.
+The /media directory stores files for removable devices such as USB drives.
+The /mnt directory contains subdirectories that act as temporary mount points for mounting devices such as CD-ROMs.
+The /proc directory is a virtual filesystem that holds information on currently running processes. It’s a strange filesystem that is created upon a system boot and destroyed upon shutdown.
+The /bin directory contains user command binary files.
+The /lib directory stores shared library images and kernel modules.
+
+
+file types
+d- directory
+- - regular file
+l -symbolic link
+
+type - permission - total-files-inside - owner - group - size - date-time-stamp - name
+
+ls
+ls -l - long
+ls -lh -long and human readable
+ls -la - a(including hidden files)
+mkdir .directory - create hidden directory
+ls -ltr ((l) long, (t) sort newst first, (r)reverse)
+mkdir -p directory - create nested directories
+
+hostnamectl set-hostname newhostname - t chnage hostname
+sudo -i
+
+timedatectl set-timezone Asia/Kolkata - to change time zone
+rmdir - delete empty directory
+locate file/directory - to find file or directory
+
+sudo - temp
+sudo su - perm
+sudo su ~ - perm home
+
+ls -ld /boot - it will give specific file/or directory information such as perm, create date
+
+tree (yum install tree)
+
+hardlink - (ln source destination) (check inod -> ls -i filename) (copy) same inod
+softlink - (ln -s source destination) (check inod -> ls -i filename) (short cut) different inod
+
+scp -i keyname sourcefile username@pubip:destination - send file to vm
+scp -i username2pubip:/source /destination - download file from vm
+
+how to select purticular file form delete
+rm -rvf !("file")
+
+zip file and unzip file
+-----------------------
+zip 
+unzip aws.zip
+tar -xzvf zip.zip /source
+
+crontab 
+--------
+crontab -l
+crontab -e
+/var/spool/crontab/ec2-user/root
+
+man command
+help command
+whatis command
+apropos copy

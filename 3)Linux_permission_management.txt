@@ -1,0 +1,85 @@
+in two way we can assign permission
+-----------------------------------
+a) absolute mode
+b) symbolic mode
+
+3 type of entity and 3 types of access mode
+USER, group, other users
+read write execution
+
+what is read -> user can read content of file
+what is write -> user can modify file
+what is execution -> user can run that file (eg: shell script file, or exe file)
+
+rwx rwx rwx
+421 421 421
+ 7   7   7
+
+0 - no permission
+1 - execution permission
+2 - write permission
+3 - write and execution permission
+4 - read permission
+5 - read and execution permission
+6 - read and write permission
+7 - read, write and execution permission(ALL permission are allowed)
+
+owner full permission, group read, other read?
+
+user group other users
+
+-rwx rwx rwx
+| |   |   |------ other users
+| |   |
+| |   |---------- groups
+| |
+| |-------------- current user (owner of file/directory)
+|
+|---------------- regular file(-) directories(d)
+
+
+create custom permission for user
+-----------------------------------
+chmod 777 filename - all permission for all entities
+
+
+symbolic mode
+--------------
+symbolic mode
+--------------
+u -> user
+g -> group
+o -> other users
+a -> all
+= -> assigning 
++ -> adding
+- -> removing
+
+chmod u+r file
+chmod ugo+rwx file
+
+chown(ownership of file)
+-------------------------
+chown username:groupname filename
+
+chgrp chnage group
+------
+to chnage group permission, can use "chgrp ec2-user filename"
+
+setfacl (set fire wall access control list) and getfacl (set fire wall access control list)
+--------------------------------------------------------------------------------------------
+getfacl - to get permission information of file or directory
+setfacl - to set permission for files/directory
+
+setfacl -m u:username:rwx filename
+
+sticky bit
+-----------
+When a directory's sticky bit is set, root user or file owner only can delete the file, hence it helps to prevent unintentional delete of file
+chmod 0000 file
+
+umask user file-creation mode mask
+-----
+to determine the file permission for newly created files. 
+execute umask
+set new umask - umask 0222
