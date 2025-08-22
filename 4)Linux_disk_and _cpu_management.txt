@@ -1,3 +1,4 @@
+goog mo
 to list all block devices
 -------------------------
 lsblk - list all storage block, which is attached to vm
