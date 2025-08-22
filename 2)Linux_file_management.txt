@@ -1,3 +1,4 @@
+goog information
 The /root directory is the home directory for the root user.
 The /dev directory contains device files such as /dev/sda.
 Static boot files are located in the /boot directory.
